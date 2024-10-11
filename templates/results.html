@@ -1,0 +1,41 @@
+{% include 'base.html' %}
+
+{% block content %}
+
+    <div class="container-fuild">
+
+        <h2>Attributions des groupes et des salles</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Filière</th>
+                    <th>Niveau</th>
+                    <th>Groupe</th>
+                    <th>Salle</th>
+                    <th>Capacité de la Salle</th>
+                    <th>Campus</th>
+                    <th>Nombre d'étudiants</th>
+                    <th>Heure de début</th>
+                    <th>Heure de fin</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for group in groups %}
+                <tr>
+                    <td>{{ group.filiere.nom }}</td>
+                    <td>{{ group.filiere.niveau }}</td>
+                    <td>GROUPE {{ group.numero_groupe }}</td>
+                    <td>{{ group.salle.nom }}</td>
+                    <td>{{ group.salle.capacite }}</td>
+                    <td>{{ group.salle.campus }}</td>
+                    <td>{{ group.nombre_etudiants }}</td>
+                    <td>{{ group.heure_debut|date:"H:i" }}H</td>
+                    <td>{{ group.heure_fin|date:"H:i" }}H</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+
+{% endblock content %}

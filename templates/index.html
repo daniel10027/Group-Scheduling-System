@@ -1,0 +1,80 @@
+{% include 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a class="btn btn-primary d-inline-block" href="{% url 'filieres' %}">Charger les filieres</a>
+
+                <a class="btn btn-info d-inline-block ml-2" href="{% url 'salles' %}">Charger les salles</a>
+                <a style="float:right" class="btn btn-danger d-inline-block ml-2" href="{% url 'reset' %}">Reset</a>
+<br>
+<br>
+                <a class="btn btn-success d-inline-block ml-2" href="{% url 'generate_groups' %}">Générer la repartition </a>
+                <br>
+                <br>
+               
+            </div>
+        </div>
+        <div class="row">
+            <!-- Filiere Table -->
+           
+            <div class="col-12 col-md-6">
+                <h2>Filieres</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Niveau</th>
+                            <th>Cycle</th>
+                            <th>Nombre d'inscrits</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for filiere in filieres %}
+                        <tr>
+                            <td>{{ filiere.nom }}</td>
+                            <td>{{ filiere.niveau }}</td>
+                            <td>{{ filiere.cycle }}</td>
+                            <td>{{ filiere.nombre_inscrits }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    
+            <!-- Salle Table -->
+           
+            <div class="col-12 col-md-6">
+                <h2>Salles</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Campus</th>
+                            <th>Capacité</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for salle in salles %}
+                        <tr>
+                            <td>{{ salle.nom }}</td>
+                            <td>{{ salle.campus }}</td>
+                            <td>{{ salle.capacite }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+{% endblock content %}
+
+

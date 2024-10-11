@@ -1,0 +1,23 @@
+{% include 'base.html' %}
+
+{% block content %}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <h2>Upload Salles Excel File</h2>
+        <br>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="file" required>
+            <br>
+            <br>
+            <button class="btn btn-success"  type="submit">Charger</button>
+        </form>
+        
+    </div>
+  </div>
+
+{% endblock content %}
+
+
